@@ -1,0 +1,29 @@
+# Jenkins Troubleshooting
+## Reset password
+-   Disable Jenkins Security
+    - Log onto your Jenkins server using an account with root privileges.
+    - Open Jenkin’s configration XML file into a text editor.
+      - sudo vi /var/lib/jenkins/config.xml
+    - Set false to string - useSecurity
+    - Save and close the file
+    - Restart Jenkins
+      - sudo systemctl restart jenkins
+  - Reset Jenkins Admin’s Password
+    - After Jenkins restarts navigate to the web console
+    - Notice that you were not prompted for a username or password
+    - This is because we disabled security in Jenkins’ configuration file.
+    - To reset admin’s password, do the following
+          - Click on People on the left-hand navigation menu.
+          - Click on the Admin.
+          - Delete the user account.
+          - Navigate to Jenkins / Manage Jenkins.
+          - Click on Configure Global Security
+          - Check the Enable Security check box
+          - Under Security Realm, select Jenkins’ own user database
+          - In the Authorization section, select Logged-in users can do anything.
+          - Unselect Allow anonymous read access.
+          - Click Save to save your changes.
+  - Create New Jenkins Admin User
+    - Once you have completed the tasks above, you will be redirect to a page where a new Admin user can be created
+    - Fill in your new details and then click Create First Admin User
+    - You have now created a new Admin user with a new password
