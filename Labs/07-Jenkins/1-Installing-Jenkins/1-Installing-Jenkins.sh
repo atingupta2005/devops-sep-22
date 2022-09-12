@@ -1,16 +1,25 @@
-## Enable swap space
-sudo swapon -s
-sudo fallocate -l 8G /swapfile
-chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-sudo su
-echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab
-echo "vm.swappiness=10" >> /etc/sysctl.conf
-exit
-sudo swapon -s
-free -m
-sudo sysctl -p
+## Add Swap Space
+- Create new Premium SSD and attach to the VM
+- Increase main disk space of VM to 9 GB
+- Follow: https://devconnected.com/how-to-add-swap-space-on-ubuntu-20-04/
+- Run below commands:
+```
+sudo swapon --show
+sudo fdisk -l
+sudo fdisk /dev/sdc
+	# Specify n command and create primary partition
+	# Specify t command and use 82 code to change partition type to Swap
+	# Specify w to write the changes
+sudo mkswap /dev/sdc1
+sudo swapon /dev/sdc1
+sudo swapon --show
+sudo blkid | grep "swap"
+sudo nano /etc/fstab
+	# UUID=<copied value>   none   swap  defaults   0   0
+  UUID=89c74477-2169-4928-807f-dab83d011d38   none   swap  defaults   0   0
+sudo reboot
+sudo swapon --show
+```
 
 ## Removing Jenkins
 sudo service jenkins stop

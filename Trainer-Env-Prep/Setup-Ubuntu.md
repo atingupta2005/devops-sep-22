@@ -1,4 +1,5 @@
 # Trainer Tasks
+- VM DNS: vmslk.eastus2.cloudapp.azure.com
 
 ```
 sudo apt -y update
@@ -22,6 +23,24 @@ git clone
 cd
 ```
 
+## Setup R Studio for Ubuntu
+- For Ubuntu
+```
+sudo apt -y update
+sudo apt-get -y install r-base
+```
+```
+sudo apt-get  -y install gdebi-core
+wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-351-amd64.deb
+sudo gdebi rstudio-server-2021.09.0-351-amd64.deb
+```
+```
+free -h
+curl http://localhost:8787
+curl vmslk.eastus2.cloudapp.azure.com:8787
+```
+
+
 - Customize linux prompt
 ```
 cat ~/.bashrc
@@ -36,10 +55,10 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt install -y python3.10
 python3.10 --version
 sudo apt install -y python3-pip
-sudo apt install -y python3-venv
+sudo apt install -y python3.10-venv
 mkdir python_venv
 cd python_venv/
-python3 -m venv .
+python -m venv .
 source  bin/activate
 python -V
 deactivate

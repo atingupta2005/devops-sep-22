@@ -34,3 +34,59 @@ docker container ls
 docker container stop ubuntu$USER_SUFFIX
 docker container rm ubuntu$USER_SUFFIX
 docker container ls -a
+
+
+# Container Images
+# - http://hub.docker.com
+
+docker image ls
+
+docker pull nginx
+
+docker image ls
+
+## Image Tagging and Pushing to Docker Hub
+
+docker image ls
+
+docker image tag nginx $DOCKER_LOGIN_ID/nginx
+
+docker image push $DOCKER_LOGIN_ID/nginx
+
+docker login
+
+docker image push @DOCKER_LOGIN_ID/nginx
+
+## Building Images: The Dockerfile Basics
+
+cd dockerfile-sample-1
+
+vim Dockerfile
+
+## Building Images: Running Docker Builds
+
+docker image build -t customnginx .
+
+docker image ls
+
+docker image build -t customnginx .
+
+## Building Images: Extending Official Images
+
+cd ../dockerfile-sample-2
+
+vim Dockerfile
+
+docker container run -p 80$USER_SUFFIX:80 --rm nginx
+
+docker image build -t nginx-with-html .
+
+docker container run -p 80$USER_SUFFIX:80 --rm nginx-with-html
+
+docker image ls
+
+docker image tag nginx-with-html:latest $DOCKER_LOGIN_ID/nginx-with-html:latest
+
+docker image ls
+
+docker push
