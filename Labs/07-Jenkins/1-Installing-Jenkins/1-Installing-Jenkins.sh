@@ -1,9 +1,8 @@
 ## Add Swap Space
-- Create new Premium SSD and attach to the VM
-- Increase main disk space of VM to 9 GB
-- Follow: https://devconnected.com/how-to-add-swap-space-on-ubuntu-20-04/
-- Run below commands:
-```
+#- Create new Premium SSD and attach to the VM
+#- Increase main disk space of VM to 9 GB
+#- Follow: https://devconnected.com/how-to-add-swap-space-on-ubuntu-20-04/
+#- Run below commands:
 sudo swapon --show
 sudo fdisk -l
 sudo fdisk /dev/sdc
@@ -16,10 +15,8 @@ sudo swapon --show
 sudo blkid | grep "swap"
 sudo nano /etc/fstab
 	# UUID=<copied value>   none   swap  defaults   0   0
-  UUID=89c74477-2169-4928-807f-dab83d011d38   none   swap  defaults   0   0
 sudo reboot
 sudo swapon --show
-```
 
 ## Removing Jenkins
 sudo service jenkins stop
