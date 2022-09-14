@@ -61,7 +61,7 @@ docker image push @DOCKER_LOGIN_ID/nginx
 
 cd dockerfile-sample-1
 
-vim Dockerfile
+cat Dockerfile
 
 ## Building Images: Running Docker Builds
 
@@ -71,22 +71,4 @@ docker image ls
 
 docker image build -t customnginx .
 
-## Building Images: Extending Official Images
-
-cd ../dockerfile-sample-2
-
-vim Dockerfile
-
-docker container run -p 80$USER_SUFFIX:80 --rm nginx
-
-docker image build -t nginx-with-html .
-
-docker container run -p 80$USER_SUFFIX:80 --rm nginx-with-html
-
 docker image ls
-
-docker image tag nginx-with-html:latest $DOCKER_LOGIN_ID/nginx-with-html:latest
-
-docker image ls
-
-docker push

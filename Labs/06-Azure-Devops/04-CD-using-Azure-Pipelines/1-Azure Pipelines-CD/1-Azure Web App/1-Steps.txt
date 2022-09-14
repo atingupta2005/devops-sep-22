@@ -23,13 +23,3 @@ For Continuous Delivery Trigger:
 5. Do changes in the code and commit changes
 6. Build pipeline will trigger
 7. Release pipeline will also trigger
-
-For Multiple Stages:
-1. Edit existing release pipeline
-1. Add Stage in Serial for QA then Prod
-1. Create new Azure Web App for Prod
-1. Configure Prod Web App in release pipeline for Prod App
-1. Save and "Create Release"
-1. Do changes in Source Code.
-1. Build and Release pipelines will trigger
-1. Both QA and Prod will be having the release

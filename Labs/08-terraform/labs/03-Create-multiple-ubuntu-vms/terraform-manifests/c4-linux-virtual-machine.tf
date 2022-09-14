@@ -7,7 +7,7 @@ resource "azurerm_linux_virtual_machine" "mylinuxvm" {
   location            = azurerm_resource_group.myrg.location
   size                = "Standard_DS1_v2"
   admin_username      = "azureuser"
-  network_interface_ids = [ element(azurerm_network_interface.myvmnic[*].id, count.index)]  
+  network_interface_ids = [ element(azurerm_network_interface.myvmnic[*].id, count.index)]
   admin_ssh_key {
     username   = "azureuser"
     public_key = file("${path.module}/ssh-keys/terraform-azure.pub")
@@ -23,7 +23,4 @@ resource "azurerm_linux_virtual_machine" "mylinuxvm" {
     sku       = "83-gen2"
     version   = "latest"
   }
-  custom_data = filebase64("${path.module}/app-scripts/app1-cloud-init.txt")
 }
-
-
