@@ -1,7 +1,7 @@
 # Resource: Azure Linux Virtual Machine
 resource "azurerm_linux_virtual_machine" "mylinuxvm" {
   count = 2
-  name                = "mylinuxvm-${count.index}"
+  name                = "${var.vm_name}-${count.index}"
   computer_name       = "devlinux-${count.index}" # Hostname of the VM
   resource_group_name = azurerm_resource_group.myrg.name
   location            = azurerm_resource_group.myrg.location

@@ -3,7 +3,10 @@ sudo apt-get remove -y azure-cli
 rm -rf ~/.azure
 
 # Install using python PIP (Recommended)
-virtualenv ~/python_venv
+cd
+rm -rf python_venv
+sudo apt install -y python3.9
+python3.9 -m venv python_venv
 source ~/python_venv/bin/activate
 pip install azure-cli
 

@@ -1,7 +1,11 @@
+source ~/python_venv/bin/activate
 az account set --subscription 7f44e8e4-6ddb-4247-8dff-7d8ef69c9e49
 az aks get-credentials --resource-group rgk8s --name agk8s
 
-USER_ID="u50"
+USER_ID=$USER
+echo $USER
+
+#sudo snap install kubectl --classic
 
 # Kubernetes  - PODs
 # Get Worker Node Status
@@ -41,8 +45,8 @@ echo $SVC_PUB_IP2
 # Access Application
 curl $SVC_PUB_IP2
 
-# Stream pod logs with -f option and access application to see logs
-kubectl logs -f $USER_ID-first-pod
+# Stream pod logs and access application to see logs
+kubectl logs $USER_ID-first-pod
 
 # Get all Objects in default namespace
 kubectl get all

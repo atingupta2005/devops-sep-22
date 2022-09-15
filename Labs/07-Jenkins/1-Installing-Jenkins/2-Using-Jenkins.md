@@ -1,7 +1,7 @@
 # Using Jenkins
 
 ## View System Information
- - Manage Jenkins\System Information
+ - Manage Jenkins/System Information
 
 ## Setting up a Jenkins job
  - The build of a project is handled via jobs in Jenkins

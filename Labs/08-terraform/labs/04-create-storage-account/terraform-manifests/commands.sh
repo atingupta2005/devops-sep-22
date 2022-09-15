@@ -9,3 +9,5 @@ terraform plan
 
 # deploy terraform infra
 terraform apply -auto-approve
+
+terraform destroy -auto-approve
