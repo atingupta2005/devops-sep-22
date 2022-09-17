@@ -1,0 +1,10 @@
+echo "20.165.36.26 puppet  vmpuppetserver.kicue0lfi3pufckjrpahcloejc.jx.internal.cloudapp.net" >> /etc/hosts
+
+ping puppet 
+ping vmpuppetserver.kicue0lfi3pufckjrpahcloejc.jx.internal.cloudapp.net
+
+telnet vmpuppetserver.kicue0lfi3pufckjrpahcloejc.jx.internal.cloudapp.net 8140
+
+curl -k https://vmpuppetserver.kicue0lfi3pufckjrpahcloejc.jx.internal.cloudapp.net:8140/packages/current/install.bash | sudo bash
+
+puppet agent -t
