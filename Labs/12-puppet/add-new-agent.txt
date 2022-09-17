@@ -1,5 +1,7 @@
+ssh atingupta2005@20.25.184.84
+sudo su -
 echo "20.165.36.26 puppet  vmpuppetserver.kicue0lfi3pufckjrpahcloejc.jx.internal.cloudapp.net" >> /etc/hosts
-
+cat /etc/hosts
 ping puppet 
 ping vmpuppetserver.kicue0lfi3pufckjrpahcloejc.jx.internal.cloudapp.net
 
